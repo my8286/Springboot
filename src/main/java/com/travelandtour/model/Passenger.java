@@ -20,6 +20,17 @@ public class Passenger {
 	private Integer age;
 	
 	
+	public Passenger() {
+		super();
+	}
+	public Passenger(Long passengerId, String firstName, String lastName, String gender, Integer age) {
+		super();
+		this.passengerId = passengerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.age = age;
+	}
 	public Passenger(String firstName, String lastName, String gender, Integer age) {
 		super();
 		this.firstName = firstName;

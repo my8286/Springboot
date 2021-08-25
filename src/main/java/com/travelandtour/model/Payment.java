@@ -18,6 +18,15 @@ public class Payment {
 	private String paymentTime;
 	
 	
+	public Payment() {
+		super();
+	}
+	public Payment(Long paymentId, String paymentDate, String paymentTime) {
+		super();
+		this.paymentId = paymentId;
+		this.paymentDate = paymentDate;
+		this.paymentTime = paymentTime;
+	}
 	public Payment(String paymentDate, String paymentTime) {
 		super();
 		this.paymentDate = paymentDate;

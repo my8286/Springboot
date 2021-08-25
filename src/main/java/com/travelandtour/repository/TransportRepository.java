@@ -8,6 +8,7 @@ import com.travelandtour.model.*;
 
 public interface TransportRepository extends JpaRepository<Transport,Long> {
 	List<Transport> findBySourceAndDestinationAndType(String from,String to,Integer type);
+	Transport findByTransportId(Long id);
 
 }
 

@@ -62,15 +62,37 @@ public class UserService {
 		return transport_repo.findBySourceAndDestinationAndType(source,destination,type);
 	}
 	
-	public Booking saveBooking(BookingData data)
+	public Booking saveBooking(BookingData bd)
 	{
-		Payment payment=new Payment(data.getPaymentDate(),data.getPaymentTime());
+		Booking b1=new Booking();
+		b1.setJourneyDate(bd.getJourneyDate());
+		b1.setStatus(1);
+		
+		Booking  b2=booking_repo.save(b1);
+		
+		Payment payment=new Payment(bd.getPaymentDate(),bd.getPaymentTime());
 		payment=payment_repo.save(payment);
 		
-		Passenger passenger=new Passenger(data.getFirstName(),data.getLastName(),data.getGender(),data.getAge());
+		Passenger passenger=new Passenger(bd.getFirstName(),bd.getLastName(),bd.getGender(),bd.getAge());
 		passenger=passenger_repo.save(passenger);
 		
-		Booking booking=new Booking(data.getJourneyDate(),data.getUserId(),payment.getPaymentId(),passenger.getPassengerId(),data.getTransportId());
-		return booking_repo.save(booking);
+		User user=user_repo.findByUserId(bd.getUserId());
+	
+		Transport transport=transport_repo.findByTransportId(bd.getTransportId());
+		
+		b2.setUser(user);
+		b2.setTransport(transport);
+		b2.setPayment(payment);
+		b2.setPassenger(passenger);
+		
+		return booking_repo.save(b2);
 	}
+	
+	public List<Booking> fetchBookingHistory(Long user_id)
+	{	
+		
+		return booking_repo.findBookingHistory(user_id);
+	}
+	
+	
 }

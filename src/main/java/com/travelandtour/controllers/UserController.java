@@ -120,6 +120,15 @@ public class UserController {
 			//System.out.println("list="+obj);
 			return obj;
 	}
+	
+	@GetMapping("/get_history")
+	public List<Booking> getBookingHistory(@RequestParam Long user_id) 
+	{
+			//System.out.println("s="+source+" d="+destination+" t"+type);
+			List<Booking> obj=service.fetchBookingHistory(user_id);
+			//System.out.println("list="+obj);
+			return obj;
+	}
 
 
 
