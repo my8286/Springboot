@@ -107,13 +107,13 @@ public class UserService {
 		return booking_repo.findBookingHistory(b2.getUser().getUser_id());
 	}
 	
-	public Feedback saveFeedback(Feedback feedback)
+	public Feedback saveFeedback(FeedbackDto fd)
 	{
-		User user=user_repo.findByUserId(feedback.getUser().getUser_id());
-		feedback.setUser(null);
-		Feedback f1=feedback_repo.save(feedback);
-		f1.setUser(user);
-		return feedback_repo.save(f1);
+		User user=user_repo.findByUserId(fd.getUserId());
+		Feedback f1=new Feedback(fd.getExperience(),fd.getSatisfy(),fd.getRecommend(),fd.getMessage());
+		Feedback f2=feedback_repo.save(f1);
+		f2.setUser(user);
+		return feedback_repo.save(f2);
 	}
 
 }

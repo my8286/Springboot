@@ -30,6 +30,14 @@ public class Feedback {
 		super();
 	}
 
+	public Feedback(Integer experience, Integer satisfy, Integer recommend, String message) {
+		super();
+		this.experience = experience;
+		this.satisfy = satisfy;
+		this.recommend = recommend;
+		this.message = message;
+	}
+
 	public Long getFeedbackId() {
 		return feedbackId;
 	}
