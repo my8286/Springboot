@@ -9,11 +9,11 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>in.nareshit.raghu</groupId>
-	<artifactId>SpringBoot2RestCurdMySQLEx</artifactId>
+	<groupId>com.travelandtour</groupId>
+	<artifactId>travel-and-tour</artifactId>
 	<version>1.0</version>
-	<name>SpringBoot2RestCurdMySQLEx</name>
-	<description>Demo project for Spring Boot</description>
+	<name>travel-and-tour-project</name>
+	<description>Travel and tour project for Spring Boot</description>
 
 	<properties>
 		<java.version>14</java.version>
