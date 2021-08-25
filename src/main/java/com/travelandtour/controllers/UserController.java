@@ -109,6 +109,15 @@ public class UserController {
 		return obj;
 	}
 	
+	@PostMapping("/save_feedback")
+	public Feedback saveFeedback(@RequestBody Feedback feedback) throws Exception
+	{
+		System.out.println(feedback);
+		Feedback obj=service.saveFeedback(feedback);
+		
+		return obj;
+	}
+	
 	
 	@GetMapping("/get_transport")
 	public List<Transport> getTransport(@RequestParam(defaultValue = "empty") String source,@RequestParam(defaultValue = "empty") String destination,@RequestParam Integer type) 

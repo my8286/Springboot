@@ -29,6 +29,9 @@ public class UserService {
 	@Autowired
 	PassengerRepository passenger_repo;
 	
+	@Autowired
+	FeedbackRepository feedback_repo;
+	
 	public User saveUser(User user)
 	{
 		return user_repo.save(user);
@@ -99,8 +102,18 @@ public class UserService {
 		Booking b1=booking_repo.findByBookingId(booking_id);
 		b1.setStatus(0);
 		
-		return booking_repo.findBookingHistory(b1.getUser().getUser_id());
+		Booking b2=booking_repo.save(b1);
+		
+		return booking_repo.findBookingHistory(b2.getUser().getUser_id());
 	}
 	
-	
+	public Feedback saveFeedback(Feedback feedback)
+	{
+		User user=user_repo.findByUserId(feedback.getUser().getUser_id());
+		feedback.setUser(null);
+		Feedback f1=feedback_repo.save(feedback);
+		f1.setUser(user);
+		return feedback_repo.save(f1);
+	}
+
 }
