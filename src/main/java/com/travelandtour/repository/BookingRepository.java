@@ -10,5 +10,7 @@ import com.travelandtour.model.*;
 public interface BookingRepository extends JpaRepository<Booking,Long> {
 	@Query(value = "SELECT * FROM bookings b WHERE b.user_id=?1", nativeQuery = true)
 	List<Booking> findBookingHistory(Long user_id);
+	
+	Booking findByBookingId(Long id);
 
 }

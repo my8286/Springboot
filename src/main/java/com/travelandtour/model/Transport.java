@@ -19,6 +19,19 @@ public class Transport {
 	private String departure;
 	private String arrival;
 	private Integer type;
+	private Integer fare;
+	
+	
+	
+	public Transport() {
+		super();
+	}
+	public Integer getFare() {
+		return fare;
+	}
+	public void setFare(Integer fare) {
+		this.fare = fare;
+	}
 	public Long getTransportId() {
 		return transportId;
 	}

@@ -110,8 +110,6 @@ public class UserController {
 	}
 	
 	
-	
-	
 	@GetMapping("/get_transport")
 	public List<Transport> getTransport(@RequestParam(defaultValue = "empty") String source,@RequestParam(defaultValue = "empty") String destination,@RequestParam Integer type) 
 	{
@@ -129,6 +127,17 @@ public class UserController {
 			//System.out.println("list="+obj);
 			return obj;
 	}
+	
+	@GetMapping("/cancel_booking")
+	public List<Booking> cancelBooking(@RequestParam Long booking_id) 
+	{
+			//System.out.println("s="+source+" d="+destination+" t"+type);
+			List<Booking> obj=service.cancelBooking(booking_id);
+			//System.out.println("list="+obj);
+			return obj;
+	}
+	
+	
 
 
 

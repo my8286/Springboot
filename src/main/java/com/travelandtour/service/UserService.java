@@ -94,5 +94,13 @@ public class UserService {
 		return booking_repo.findBookingHistory(user_id);
 	}
 	
+	public List<Booking> cancelBooking(Long booking_id)
+	{	
+		Booking b1=booking_repo.findByBookingId(booking_id);
+		b1.setStatus(0);
+		
+		return booking_repo.findBookingHistory(b1.getUser().getUser_id());
+	}
+	
 	
 }
